@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge Unblocker - Powered by Ultraviolet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .doge-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .doge-text {
+            font-size: 1.5em;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .powered-by {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .url-input-section {
+            margin-bottom: 30px;
+        }
+
+        .url-input-section label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .url-input-section input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .url-input-section input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        .feature-item::before {
+            content: "✓ ";
+            color: #FF6B6B;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .doge-word {
+            display: inline-block;
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="doge-emoji">🐕</div>
+        
+        <h1>Doge Unblocker</h1>
+        
+        <div class="doge-text">
+            <span class="doge-word">wow</span> such proxy
+            <span class="doge-word">very</span> unblock
+            <span class="doge-word">so</span> freedom
+        </div>
+
+        <p class="subtitle">Access any website with ease</p>
+
+        <div class="powered-by">
+            ⚡ Powered by Ultraviolet
+        </div>
+
+        <div class="url-input-section">
+            <label for="urlInput">Enter URL to unblocker:</label>
+            <input 
+                type="text" 
+                id="urlInput" 
+                placeholder="https://example.com" 
+                autocomplete="off"
+            >
+        </div>
+
+        <button onclick="unblockURL()">🚀 Unblocker Now</button>
+
+        <div class="features">
+            <h3>Features</h3>
+            <div class="feature-list">
+                <div class="feature-item">Fast & Reliable</div>
+                <div class="feature-item">Secure Connection</div>
+                <div class="feature-item">Easy to Use</div>
+                <div class="feature-item">Works Everywhere</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Doge Unblocker © 2026 | Powered by Ultraviolet</p>
+        </footer>
+    </div>
+
+    <script>
+        function unblockURL() {
+            const urlInput = document.getElementById('urlInput');
+            const url = urlInput.value.trim();
+
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            // Add protocol if missing
+            let finalUrl = url;
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                finalUrl = 'https://' + url;
+            }
+
+            // Use Ultraviolet proxy
+            const proxyUrl = '/uv/service/' + btoa(finalUrl);
+            window.location.href = proxyUrl;
+        }
+
+        // Allow Enter key to trigger unblocker
+        document.getElementById('urlInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                unblockURL();
+            }
+        });
+
+        // Focus on input on load
+        window.addEventListener('load', function() {
+            document.getElementById('urlInput').focus();
+        });
+    </script>
+</body>
+</html>
